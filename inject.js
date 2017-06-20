@@ -3,6 +3,14 @@ $(function () {
 		// Object
 		var dishObj = {};
 		var dishJSON;
+		var heading;
+		var headings = [];
+
+		// Get Table Headings
+		$('table.wikitable:first .headerSort').each(function (index, el) {
+			heading = $(el).text().replace(/\s+/g, '_').toLowerCase();
+			headings.push(heading);
+		});
 
 		// Clean HTML
 		$('.hatnote').remove();
@@ -18,7 +26,7 @@ $(function () {
 			// Table to JSON
 			var table = $(el).tableToJSON({
 				ignoreEmptyRows: true,
-				headings: ['thai_name', 'thai_script', 'english_name', 'image', 'region', 'description'],
+				headings: headings,
 				textExtractor: {
 					3: function (cellIndex, $cell) {
 						// Get the image src attribute
