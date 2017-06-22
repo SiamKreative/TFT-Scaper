@@ -2,7 +2,6 @@ $(function () {
 	if (jQuery().tableToJSON) {
 		// Object
 		var dishObj = {};
-		var dishJSON;
 		var heading;
 		var headings = [];
 
