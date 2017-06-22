@@ -41,10 +41,20 @@ $(function () {
 
 			// Merge all objects
 			dishObj[categorySlug] = table;
-			dishJSON = JSON.stringify(dishObj);
 		});
 
-		// Output to console
-		console.log(dishJSON);
+		// Append download button
+		$('<a />', {
+			text: 'Download JSON',
+			download: 'data.json',
+			href: 'data:application/json,' + encodeURIComponent(JSON.stringify(dishObj))
+		}).css({
+			position: 'fixed',
+			top: '5%',
+			right: '5%',
+			background: '#fff',
+			padding: '1em 2em',
+			boxShadow: '0 0 1em rgba(0,0,0,.25)'
+		}).appendTo('body');
 	}
 });
