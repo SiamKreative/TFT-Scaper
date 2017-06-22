@@ -13,6 +13,8 @@ $(function () {
 
 		// Clean HTML
 		$('.hatnote').remove();
+
+		// Turn tables into structured object
 		$('table.wikitable').each(function (index, el) {
 
 			// Get category name
