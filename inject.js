@@ -45,6 +45,7 @@ $(function () {
 
 		// Append download button
 		$('<a />', {
+			class: 'button-download'
 			text: 'Download JSON',
 			download: 'data.json',
 			href: 'data:application/json,' + encodeURIComponent(JSON.stringify(dishObj))
@@ -52,9 +53,24 @@ $(function () {
 			position: 'fixed',
 			top: '5%',
 			right: '5%',
+			zIndex: 1050,
 			background: '#fff',
 			padding: '1em 2em',
 			boxShadow: '0 0 1em rgba(0,0,0,.25)'
+		}).appendTo('body');
+
+		// Append modal backdrop
+		$('<div />', {
+			class: 'modal-backdrop'
+		}).css({
+			position: 'fixed',
+			top: 0,
+			right: 0,
+			bottom: 0,
+			left: 0,
+			zIndex: 1040,
+			backgroundColor: '#000',
+			opacity: 0.5
 		}).appendTo('body');
 	}
 });
