@@ -33,15 +33,16 @@ $(function () {
 						var $img = $cell.find('img');
 						var $imgSrc = $img.attr('src');
 						if ($imgSrc) {
-							var ratio = $img.data('file-width') / $img.data('file-height');
+							var ratio = $img.data('file-height') / $img.data('file-width');
 							var largeWidth = 640;
 							return {
+								ratio: ratio * 100,
 								thumbnailUrl: $imgSrc,
 								thumbnailWidth: $img.width(),
 								thumbnailHeight: $img.height(),
 								largeUrl: $imgSrc.replace('110px-', largeWidth + 'px-'),
 								largeWidth: largeWidth,
-								largeHeight: Math.round(largeWidth / ratio)
+								largeHeight: Math.round(largeWidth * ratio)
 							};
 						}
 					}
