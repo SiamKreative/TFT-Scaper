@@ -32,7 +32,7 @@ $(function () {
 					3: function (cellIndex, $cell) {
 						var $img = $cell.find('img');
 						var $imgSrc = $img.attr('src');
-						if ($imgSrc) {
+						if ($img && $imgSrc) {
 							var ratio = $img.data('file-height') / $img.data('file-width');
 							var largeWidth = 640;
 							return {
@@ -44,6 +44,8 @@ $(function () {
 								largeWidth: largeWidth,
 								largeHeight: Math.round(largeWidth * ratio)
 							};
+						} else {
+							return ''
 						}
 					}
 				}
